@@ -20,16 +20,17 @@ module.exports = function(api) {
       isTestEnv && [
         '@babel/preset-env',
         {
+          "loose": true ,
           targets: {
             node: 'current'
           },
           modules: 'commonjs'
-        },
-        '@babel/preset-react'
+        }
       ],
       (isProductionEnv || isDevelopmentEnv) && [
         '@babel/preset-env',
         {
+          loose: true,
           forceAllTransforms: true,
           useBuiltIns: 'entry',
           corejs: 3,
@@ -45,6 +46,7 @@ module.exports = function(api) {
         }
       ]
     ].filter(Boolean),
+    
     plugins: [
       'babel-plugin-macros',
       '@babel/plugin-syntax-dynamic-import',

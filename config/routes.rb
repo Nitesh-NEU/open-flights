@@ -25,6 +25,6 @@ Rails.application.routes.draw do
       match "graphql", to: "graphql#execute", via: %i[get post delete]
     end
   end
-
+  get "/up", to: proc { [200, {}, ['OK']] }
   get '*path', to: 'pages#index', via: :all
 end
